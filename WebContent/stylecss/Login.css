@@ -1,0 +1,147 @@
+
+@CHARSET "UTF-8";
+
+
+
+body {
+  background-image: url(../img/Top.jpg); 
+  background-size: cover;
+}
+
+
+
+
+.ghost-button {
+	display: inline-block;
+  	width: 200px;
+ 	margin: 0px;
+	padding: 5px;
+	background: rgba(0,0,0,0.4);;
+	color: #fff;
+	text-decoration: none;
+  	font-weight: bold;
+	border: 2px hidden #fff;
+	text-align: center;
+	outline: none;
+	transition: 0.5s;
+
+}
+.ghost-button:hover,
+.ghost-button:active {
+  color: #333;
+  background: #fff;
+}
+
+
+
+
+.twitter-button{
+ position: absolute;
+ top: 20px;
+ right: 20px;
+}
+
+
+
+/*ボタンの位置調整と背景透明ボックス*/
+.input {
+	/*background-color: #000000;*/
+	position: absolute;
+ 	bottom: 5%;
+ 	width:100%;
+ 	/*height:200px*/
+	/*background-position:center center;*/
+
+}
+
+
+
+body{
+  background-image: url(../img/Top.jpg);
+  background-size: cover;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+}
+
+
+img{
+      display: block;
+      opacity: 1;
+      animation-duration: 4.5s;
+      animation-name: fade-in;
+      -moz-animation-duration: 4.5s;
+      -moz-animation-name: fade-in;
+      -webkit-animation-duration: 4.5s;
+      -webkit-animation-name: fade-in;
+      animation-timing-function: ease;
+      -moz-animation-function: ease;
+      -webkit-animation-function: ease;
+
+}
+
+@keyframes fade-in {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @-moz-keyframes fade-in {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+    @-webkit-keyframes fade-in {
+      0% {
+        display: none;
+        opacity: 0;
+      }
+
+      1% {
+        display: block;
+        opacity: 0;
+      }
+
+      100% {
+        display: block;
+        opacity: 1;
+      }
+    }
+
+/*h1の位置調整*/
+.h1style {
+	text-indent: -9999px;
+}
+
+
+.loginForm{
+	width:200px;
+}
+
+
+

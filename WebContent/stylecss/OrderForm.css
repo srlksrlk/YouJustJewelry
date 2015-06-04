@@ -1,0 +1,39 @@
+html {
+	
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table;
+	background-image: url("../img/Orderform.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	
+}
+
+
+#content {
+	color: #fff;
+	background: #08c;
+	padding: 20px;
+}
+
+.touka{
+	border:5px solid #000000;
+	background-color:rgba(255,252,217,0.3);
+}
+
+.touka2{
+	background-color:rgba(255,252,217,0.3);
+}
+
+body{
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 0;
+	display: table-cell;
+	vertical-align: middle;
+	background-color:rgba(255,252,217,0);
+}
+
+
+

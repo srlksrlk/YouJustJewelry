@@ -1,0 +1,52 @@
+body {
+	    
+	    margin:0;
+	    padding:0;
+	    font-family:"Arial Black", sans-serif;
+	    line-height: 18px;
+	    color:#000000;
+	    background-image: url("../img/Orderform.jpg");
+	    background-size: cover;
+}
+
+
+
+.form-group{
+		position: absolute;
+	 	bottom: 20%;
+	  	width:100%;
+	  	color: #fff575;
+		background-position:center center;
+}
+
+			
+.ghost-button {
+	display: inline-block;
+  	width: 200px;
+  	height: 50px;
+ 	margin: 0px;
+	padding: 5px;
+	background: rgba(0,0,0,0.4);;
+	color: #fff;
+	text-decoration: none;
+  	font-weight: bold;
+	border: 2px hidden #fff;
+	text-align: center;
+	outline: none;
+	transition: 0.5s;
+
+}
+.ghost-button:hover,
+.ghost-button:active {
+  color: #333;
+  background: #fff;
+}
+		
+		
+
+.action span.front{ display:inline; transition: 0.5s;}
+.action:hover span.front{ display:none; transition: 0.5s;}
+.action span.back{ display:none; transition: 0.5s;}
+.action:hover span.back{ display:inline; transition: 0.5s; }
+
+	

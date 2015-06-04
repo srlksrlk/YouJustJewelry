@@ -1,0 +1,64 @@
+[data-tip] {
+    position:relative;
+
+
+}
+[data-tip]:before {
+    /* hides the tooltip when not hovered */
+    content:'';
+    display:none;
+    position:absolute;
+
+	border: 5px solid transparent;
+	border-left: 5px solid transparent;
+	border-right-color: #1a1a1a;
+
+	height:0;
+	width:0;
+    top:13px;
+    right:-10px;
+
+    z-index:8;
+    font-size:0;
+    line-height:0;
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+}
+[data-tip]:after {
+	font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+    content:attr(data-tip);
+    white-space: pre;
+    text-align: center;
+    display:none;
+    position:absolute;
+
+	height:50px;
+	width:150px;
+    top:-8px;
+    right:-159.5px;
+
+    padding:18px 6px;
+    background:#1a1a1a;
+    color:#fff;
+
+    z-index:9;
+    font-size: 0.75em;
+    line-height:18px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    white-space:nowrap;
+    word-wrap:normal;
+    filter:alpha(opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+
+}
+
+[data-tip]:hover:before,
+[data-tip]:hover:after{
+    display:block;
+    position:absolute;
+}

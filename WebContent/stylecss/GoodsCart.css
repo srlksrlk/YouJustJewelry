@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+/*ログインボタンの指定*/
+.lobtn{
+	position: absolute;
+	top:1%;
+	right:3%;
+}
+/*テーブルの幅指定*/
+.customerColumn{
+	width: 100px;
+}
+
+body{
+	background-image: url("../img/GoodsCart.jpg");
+	background-size: cover;
+}
+
+img{
+	width: 20%;
+	height: 8%;
+	top:2%;
+	left: 10%
+}
+
+.touka{
+
+	border:5px solid #000000;
+	background-color:rgba(255,252,217,0.97);
+}

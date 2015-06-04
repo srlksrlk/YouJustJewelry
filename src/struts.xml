@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.devMode" value="true" />
+	<!--<constant name="struts.ui.theme" value="simple" /> -->
+	<package name="jp.co.internous.youjustjewelry.action" extends="struts-default">
+
+		<!-- 新規登録 -->
+		<action name="NewCustomerAction"
+			class="jp.co.internous.youjustjewelry.action.NewCustomerAction"
+			method="execute">
+			<interceptor-ref name="token" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/GoodsCart.jsp</result>
+			<result name="error">/NewCustomer.jsp</result>
+		</action>
+
+		<!-- ログイン -->
+		<action name="LoginAction"
+			class="jp.co.internous.youjustjewelry.action.LoginAction" method="execute">
+			<!--<result name="success">/GoodsCart.jsp</result> <result name="error">/LoginError.jsp</result> -->
+
+			<interceptor-ref name="token" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/GoodsCart.jsp</result>
+			<result name="error">/LoginError.jsp</result>
+
+		</action>
+
+		<!-- ログアウト -->
+		<action name="LogoutAction"
+			class="jp.co.internous.youjustjewelry.action.LogoutAction" method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token">/Login.jsp</result>
+			<result name="success">/Logout.jsp</result>
+		</action>
+
+		<!-- ログイン画面から新規登録へ -->
+		<action name="TransitionAction"
+			class="jp.co.internous.youjustjewelry.action.TransitionAction"
+			method="execute">
+			<result name="success">/NewCustomer.jsp</result>
+		</action>
+
+		<!-- ログアウト画面 -->
+		<action name="BackLoginAction"
+			class="jp.co.internous.youjustjewelry.action.BackLoginAction" method="execute">
+			<result name="success">/Login.jsp</result>
+		</action>
+
+		<!-- 購入手続き画面から商品一覧画面へ（カート情報は保持） -->
+		<action name="BackCartAction"
+			class="jp.co.internous.youjustjewelry.action.BackCartAction" method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/GoodsCart.jsp</result>
+		</action>
+
+
+
+		<!-- Twitter認証 -->
+		<action name="GoTwitterAction"
+			class="jp.co.internous.youjustjewelry.action.GoTwitterAction" method="execute">
+			<result name="success">Login.jsp</result>
+			<result name="error">/LoginError.jsp</result>
+		</action>
+
+		<!-- Twitter認証後商品一覧画面へ -->
+		<action name="LoginTwitterAction"
+			class="jp.co.internous.youjustjewelry.action.LoginTwitterAction"
+			method="execute">
+			<result name="success" type="chain">GetInfo</result>
+			<result name="error">/LoginError.jsp</result>
+		</action>
+
+		<action name="GetInfo"
+			class="jp.co.internous.youjustjewelry.util.TwitterGetInfo" method="execute">
+			<result name="success">/GoodsCart.jsp</result>
+		</action>
+
+		<!-- 購入手続き画面から購入完了画面へ -->
+		<action name="ConfirmedAction"
+			class="jp.co.internous.youjustjewelry.action.ConfirmedAction" method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">End.jsp</result>
+		</action>
+
+		<!-- 購入手続き画面での数量変更 -->
+		<action name="OrderChange"
+			class="jp.co.internous.youjustjewelry.action.OrderChangeAction"
+			method="execute">
+			<result name="success">OrderForm.jsp</result>
+		</action>
+
+		<!-- 購入手続き画面でチケット情報の削除 -->
+		<action name="DeleteTicketCount"
+			class="jp.co.internous.youjustjewelry.action.OrderChangeAction"
+			method="DeleteTicketCount">
+			<result name="success">OrderForm.jsp</result>
+			<result name="error">GoodsCart.jsp</result>
+		</action>
+
+		<!-- 商品一覧画面から購入手続き画面へ -->
+		<action name="GoOrderFormAction"
+			class="jp.co.internous.youjustjewelry.action.GoOrderFormAction"
+			method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/OrderForm.jsp</result>
+			<result name="error">/GoodsCart.jsp</result>
+		</action>
+
+
+		<!-- 商品一覧からカート画面に購入予定チケットを追加する -->
+		<action name="CartAddAction"
+			class="jp.co.internous.youjustjewelry.action.CartAddAction" method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<!-- <result name="invalid.token">/Login.jsp</result> -->
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/GoodsCart.jsp</result>
+		</action>
+
+		<!-- 商品一覧画面でカート情報を空にする -->
+		<action name="CartDeleteAction"
+			class="jp.co.internous.youjustjewelry.action.CartDeleteAction"
+			method="execute">
+			<interceptor-ref name="tokenSession" />
+			<interceptor-ref name="defaultStack" />
+			<result name="invalid.token" type="chain">LogoutAction</result>
+			<result name="success">/GoodsCart.jsp</result>
+		</action>
+
+
+
+
+
+
+
+	</package>
+</struts>
+
